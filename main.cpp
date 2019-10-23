@@ -3,31 +3,30 @@
 using namespace std;
 
 int main()
-{int a,n,i;
-float atlag1=0,atlag2=0,j=0,k=0,S=0,P=0;
-cout << "n=";
-cin >> n;
-for(i=0;i<n;i++){
-    cout << "a=";
-    cin >> a;
-     if(a % 2 ==0){
-        j=j+1;
-        S=S+a;
 
 
-     }
-     else {
-        k=k+1;
-        P=P+a;
+{
+    int szam,b,c,d,e=0;
+    cout << "Add meg a szamot=";
+    cin >> szam;
+    d=0;
+    b=szam;
+    while(b > 0)
+    {
+        c=b % 10;
+        b= b / 10;
+        if(c % 2 != 0)
+        {
+            e=c-1;
+            d=d*100 + c*10 + e;
+        }
+        else
+        {
+            d=d*10 + c;
+        }
+    }
+    cout << d;
 
-     }
+    return 0;
 
-
-}
-atlag1=S/j;
-atlag2=P/k;
-cout << "A parosok atlaga:" << atlag1 << endl;
-cout << "A paratlanok atlaga:" << atlag2;
-
-   return 0;
 }
