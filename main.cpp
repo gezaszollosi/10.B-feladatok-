@@ -3,30 +3,36 @@
 using namespace std;
 
 int main()
+{int v[100],v2[100],S=0,N,M,i;
+cout << "N=";
+cin >> N;
+cout << "M=";
+cin >> M;
+for(i=0;i<N;i++){
+    cout << "v[" << i << "]=";
+    cin >> v[i];
+}
+
+for(i=0;i<M;i++){
+    cout << "v[" << i << "]=";
+    cin >> v2[i];
 
 
-{
-    int szam,b,c,d,e=0;
-    cout << "Add meg a szamot=";
-    cin >> szam;
-    d=0;
-    b=szam;
-    while(b > 0)
-    {
-        c=b % 10;
-        b= b / 10;
-        if(c % 2 != 0)
-        {
-            e=c-1;
-            d=d*100 + c*10 + e;
-        }
-        else
-        {
-            d=d*10 + c;
-        }
-    }
-    cout << d;
+if(v[i]== v2[i]){
+    S=S+v[i];
+}
+}
+
+
+int d=0,a;
+while (S>0){
+    a=S%10;
+    S=S/10;
+    d=d*10+a;
+}
+cout << d;
 
     return 0;
 
 }
+
