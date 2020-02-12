@@ -1,70 +1,42 @@
+
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
 int main()
-{int n,v[1000],max=-INT_MAX,min=INT_MAX,i,max2=-INT_MAX,min2=INT_MAX,min3=INT_MAX,S=0,P=1,a,b,lkkt;
-cout << "Add meg az n-et=";
-cin >> n;
-for( i=0;i<n;i++){
-        cout << "v[" << i << "]";
-        cin >> v[i];
+{
+   int a,s=0;
 
-}
-for(i=0;i<n;i++){
-    cout << v[i] << " "  << endl;
-}
-for(i=0;i<n;i++){
-    if ( v[i] > max ){
-        max2=max;
-        max=v[i];
-    }
-    else if(max2<v[i]){
-            max2=v[i];
+    ifstream bemenet("n.in");
+    ofstream kimenet("tokeletes.be");
+    bemenet >> a;
+    while(bemenet >> a){
+            s=0;
 
-    }
-    if(v[i] < min){
-        min3=min2;
-        min2=min;
-        min=v[i];
-    }
-    else if(min2>v[i]){
-        min3=min2;
-        min2=v[i];
+        for (int i=1; i<a-1; i++){
+        if(a%i==0){
+            s=s+i;
+        }
+        }
 
-    }
-    else if (min3>v[i]){
-        min3=v[i];
-    }
+    if(s==a){
 
-
-
-    }
-a=min3;
-b=max2;
-S=min3+max2;
-P=min3*max2;
-while(a!=b){
-    if(a>b){
-        a=a-b;
+    kimenet << 1 << endl;
     }
     else{
-        b=b-a;
+        kimenet << 0 << endl;
     }
-}
-lkkt=P/a;
-cout << min3 << endl;
-cout << max2 << endl;
-cout << a << endl;
-cout << S << endl;
-cout << P << endl;
-cout << lkkt << endl;
+
+
+    }
 
 
 
 
 
+    bemenet.close();
+    kimenet.close();
 
-
-return 0;
+    return 0;
 }
